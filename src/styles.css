@@ -1,0 +1,16 @@
+/* @import "~bootstrap/dist/css/bootstrap.css"; */
+.b-m{
+    margin: 0 5px 0 0px;
+}
+dl {
+    margin-bottom: 1rem;
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin-left: 0;
+    margin-bottom: 1rem;
+  }

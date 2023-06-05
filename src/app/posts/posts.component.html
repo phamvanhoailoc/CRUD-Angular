@@ -1,0 +1,36 @@
+<div class="container py-5">
+    <div class="p-2">
+        <h2 class="h2">Angular 12 CRUD Example itsolutionstuff.com</h2>
+    </div>
+    <div class="p-2">
+        <button class="btn btn-success" routerLink="/createpost">Create new post</button>
+    </div>
+    <div class="container">
+        <table class="table table-borderless">
+            <thead>
+              <tr >
+                <th scope="col" class="col0">ID</th>
+                <th scope="col" class="col-3">Title</th>
+                <th scope="col" class="col-6">Body</th>
+                <th scope="col" class="col-3">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of posts">
+                <th scope="row">{{post.id}}</th>
+                <td >{{post.title}}</td>
+                <td>{{post.body}}</td>
+                <td>
+                    <div class="d-grid gap-2 d-lg-block">
+                        <button class="btn btn-info b-m" routerLink="/viewpost">View</button>
+                        <button class="btn btn-primary b-m" routerLink="/editpost">Edit</button>
+                        <button class="btn btn-danger b-m" routerLink="/createpost">Delete</button>
+                    </div>
+                </td>
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>
+    
+  </div>

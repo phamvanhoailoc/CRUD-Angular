@@ -1,0 +1,27 @@
+<div class="container py-5">
+    <div class="p-2">
+        <h2 class="h2">Create new post</h2>
+    </div>
+    <div class="container d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="goBack()">Back</button>
+    </div>
+    <div class="container">
+       <form>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Title</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" >
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Body</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <div id="passwordHelpBlock" class="form-text">
+                Body is required
+              </div>
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+       </form>
+    </div>
+    
+  </div>
