@@ -9,8 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/listpost', pathMatch: 'full' },
   { path: 'listpost', component: PostsComponent },
   { path: 'createpost', component: CreatePostComponent },
-  { path: 'editpost', component: EditPostComponent },
-  { path: 'viewpost', component: ViewPostComponent },
+  { path: 'editpost/:id', component: EditPostComponent },
+  { path: 'viewpost/:id', component: ViewPostComponent },
   
 ];
 

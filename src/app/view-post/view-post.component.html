@@ -5,16 +5,16 @@
     <div class="container d-flex justify-content-end">
         <button class="btn btn-primary" (click)="goBack()">Back</button>
     </div>
-    <div class="container">
+    <div class="container" *ngIf="post">
         <dl>
             <dt>ID:</dt>
-            <dd>1</dd>
+            <dd>{{post.id}}</dd>
         
             <dt>Title:</dt>
-            <dd>Description 2</dd>
+            <dd>{{post.title}}</dd>
         
             <dt>Body:</dt>
-            <dd>Description 3</dd>
+            <dd>{{post.body}}</dd>
           </dl>
         
         

@@ -17,4 +17,13 @@ export class PostsComponent {
     this.PostsService.getPosts()
       .subscribe(posts => {this.posts = posts});   
   };
+  deletePost(id: any):void{
+    this.posts = this.posts.filter(h => h.id !== id);
+    this.PostsService.deletePosts(id).subscribe(
+      response => {
+        // Xử lý kết quả trả về từ API
+        window.alert("Xóa thành công")
+      }
+    );
+  }
 }

@@ -7,6 +7,7 @@ import { PostsComponent } from './posts/posts.component';
 import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { ViewPostComponent } from './view-post/view-post.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { ViewPostComponent } from './view-post/view-post.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
