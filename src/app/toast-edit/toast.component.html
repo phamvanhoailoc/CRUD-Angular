@@ -1,0 +1,14 @@
+
+<div *ngIf="showT">
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div class="toast align-items-center text-bg-success border-0 fade show" role="alert" aria-live="assertive"[class.show]="showT">
+        <div class="d-flex">
+          <div class="toast-body">
+            {{message}}
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close" (click)="cLose()"></button>
+        </div>
+      </div>
+      </div>
+</div>
+

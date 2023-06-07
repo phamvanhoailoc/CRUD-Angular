@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, tap } from 'rxjs';
+import { Location } from '@angular/common';
+
 import { Post } from '../model/post';
 
 @Injectable({
@@ -9,16 +10,23 @@ import { Post } from '../model/post';
 export class PostsService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private location: Location
   ) { }
   private getPostsURL = 'http://localhost:3000/get-listpost';  
   private getPostURL = 'http://localhost:3000/get-post';  
   private addPostsURL = 'http://localhost:3000/post-createpost';  
   private deletePostsURL = 'http://localhost:3000/delete-deletepost';  
+  private updatePostsURL = 'http://localhost:3000/put-updatepost';  
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };//dùng để chuyển đổi dữ liệu về kiểu json
+  
+  
  
+  goBack(): void {
+    this.location.back();
+  };
   getPosts() {
     return this.http.get<Post[]>(this.getPostsURL,this.httpOptions)
   };
@@ -29,9 +37,12 @@ export class PostsService {
   addPosts(data : Post) {
     return this.http.post<Post>(this.addPostsURL,data)
   };
-  deletePosts(id : number) {
+  deletePost(id : number) {
     const url = `${this.deletePostsURL}/${id}`;
     return this.http.delete<Post>(url)
+  };
+  UpdatePost(data : Post) {
+    return this.http.put<Post>(this.updatePostsURL,data)
   };
  
 }

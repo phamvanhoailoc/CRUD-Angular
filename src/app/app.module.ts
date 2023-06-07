@@ -8,6 +8,7 @@ import { CreatePostComponent } from './create-post/create-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
 import { ViewPostComponent } from './view-post/view-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToastComponent } from './toast-edit/toast.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PostsComponent,
     CreatePostComponent,
     EditPostComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    ToastComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

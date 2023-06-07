@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
 import { PostsService } from '../service/posts.service';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../model/post';
@@ -11,7 +10,6 @@ import { Post } from '../model/post';
 export class ViewPostComponent {
   post? : Post
   constructor(
-    private location: Location,
     private PostsService: PostsService,
     private route: ActivatedRoute
     ){}
@@ -19,7 +17,7 @@ export class ViewPostComponent {
     this.getPost();
   }
   goBack(): void {
-    this.location.back();
+    this.PostsService.goBack();
   };
   getPost():void{
     const id = Number(this.route.snapshot.paramMap.get('id'));

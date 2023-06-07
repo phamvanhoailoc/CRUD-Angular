@@ -62,17 +62,17 @@ server.delete('/delete-deletepost/:id', (req, res) => {
   }
 });
 
-server.put('/put-updatepost/:id', (req, res) => {
-  const postId = parseInt(req.params.id); // Lấy giá trị id từ URL parameter và chuyển đổi sang kiểu số nguyên
-  const { title, body } = req.body; // Lấy title và body từ request body
+server.put('/put-updatepost', (req, res) => {
+  const postId = parseInt(req.body.id);
+  const { title, body } = req.body; // Lấy id, title và body từ request body
 
   const posts = router.db.get('posts');
-  const post = posts.find({ id: postId });
+  const post = posts.find({id: postId});
 
   if (post) {
     post.assign({ title, body }).write(); // Cập nhật title và body của bài viết
 
-    res.json({ success: true, message: 'Cập nhật bài viết thành công' });
+    res.json({ success: true, message: 'Cập nhật bài viết thành công'});
   } else {
     res.status(404).json({ success: false, message: 'Không tìm thấy bài viết' });
   }

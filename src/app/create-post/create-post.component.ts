@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { Location } from '@angular/common';
 import { PostsService } from '../service/posts.service';
 import { Router } from '@angular/router';
 import { Post } from '../model/post';
 import { FormBuilder } from '@angular/forms';
+import { ToastsService } from '../service/toasts.service';
+import { Toast } from '../model/toast';
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
@@ -11,9 +12,9 @@ import { FormBuilder } from '@angular/forms';
 })
 export class CreatePostComponent {
 constructor(
-  private location: Location, 
   private PostsService: PostsService,
   private formBuilder: FormBuilder,
+  private toastService: ToastsService,
   private router: Router){}
   // posts : Post[] = [];
   addpostForm = this.formBuilder.group({
@@ -27,6 +28,12 @@ addpost(){
     title: titleValue,
     body: bodyValue
   };
+  const typeValue = true;
+  const messageValue = "Tạo mới thành công"
+  const dataToast : Toast= {
+    type: typeValue,
+    message: messageValue
+  };
 if(!data.title || !data.body){
   window.alert("vui lòng nhập đầy đủ!")
 }else{
@@ -34,7 +41,8 @@ if(!data.title || !data.body){
     response => {
       // Xử lý kết quả trả về từ API
       console.log('Đăng nhập thành công!', response);
-      this.router.navigate(['/listpost']); // Chuyển hướng đến trang chủ
+      this.PostsService.goBack();
+       this.toastService.setOpen(dataToast);
     },
     error => {
       console.log('thêm dữ liệu thất bại!', error);
@@ -45,6 +53,6 @@ if(!data.title || !data.body){
 }
 
 goBack(): void {
-  this.location.back();
+  this.PostsService.goBack();
 };
 }
