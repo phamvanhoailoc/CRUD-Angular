@@ -8,11 +8,6 @@ import { Post } from '../model/post';
   providedIn: 'root'
 })
 export class PostsService {
-
-  constructor(
-    private http: HttpClient,
-    private location: Location
-  ) { }
   private getPostsURL = 'http://localhost:3000/get-listpost';  
   private getPostURL = 'http://localhost:3000/get-post';  
   private addPostsURL = 'http://localhost:3000/post-createpost';  
@@ -21,9 +16,11 @@ export class PostsService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };//dùng để chuyển đổi dữ liệu về kiểu json
+  constructor(
+    private http: HttpClient,
+    private location: Location
+  ) { }
   
-  
- 
   goBack(): void {
     this.location.back();
   };

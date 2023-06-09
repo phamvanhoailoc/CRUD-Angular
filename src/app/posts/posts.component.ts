@@ -3,6 +3,9 @@ import { PostsService } from '../service/posts.service';
 import { Post } from '../model/post';
 import { ToastsService } from '../service/toasts.service';
 import { Toast } from '../model/toast';
+import { ModalsComponent } from '../modals-delete/modals.component';
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalsService } from '../service/modals.service';
 
 @Component({
   selector: 'app-posts',
@@ -10,9 +13,15 @@ import { Toast } from '../model/toast';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent {
-  constructor (private PostsService: PostsService, private toastService: ToastsService) {};
   posts : Post[] = [];
-
+  modalRef: MdbModalRef<ModalsComponent> | null = null;
+  constructor (
+    private PostsService: PostsService, 
+    private toastService: ToastsService,
+    private modalService: MdbModalService,
+    private modalsService : ModalsService
+    ) {}
+  
   ngOnInit() : void{
     this.getPosts();
   }
@@ -34,5 +43,14 @@ export class PostsComponent {
          this.toastService.setOpen(dataToast);
       }
     );
+  }
+  openModal(post: Post) {
+    this.modalsService.setOpen(post.title);
+    this.modalRef = this.modalService.open(ModalsComponent);
+    this.modalRef.onClose.subscribe((message: any) => {
+      if(message === true){
+        this.deletePost(post.id)
+      }
+    });
   }
 }

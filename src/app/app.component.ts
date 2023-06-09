@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { ModalsComponent } from './modals-delete/modals.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CRUD-Angular';
+
 
 }

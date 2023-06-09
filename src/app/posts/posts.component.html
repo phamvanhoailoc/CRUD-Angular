@@ -21,16 +21,14 @@
                 <td >{{post.title}}</td>
                 <td>{{post.body}}</td>
                 <td>
-                    <div class="d-grid gap-2 d-lg-block">
-                        <button class="btn btn-info b-m" routerLink="/viewpost/{{post.id}}">View</button>
-                        <button class="btn btn-primary b-m" routerLink="/editpost/{{post.id}}" >Edit</button>
-                        <button class="btn btn-danger b-m" (click)="deletePost(post.id)">Delete</button>
-                    </div>
+                  <div class="d-grid gap-2 d-lg-block">
+                      <button class="btn btn-info b-m" routerLink="/viewpost/{{post.id}}">View</button>
+                      <button class="btn btn-primary b-m" routerLink="/editpost/{{post.id}}" >Edit</button>
+                      <button class="btn btn-danger b-m" (click)=" openModal(post)">Delete</button>
+                  </div>
                 </td>
               </tr>
-            
             </tbody>
           </table>
     </div>
-
   </div>

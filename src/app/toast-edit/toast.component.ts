@@ -13,8 +13,14 @@ import { Toast } from '../model/toast';
 export class ToastComponent {
   showT = false;
   message = "";
-  private openSubscription: Subscription
-  constructor( private toastService: ToastsService){
+  openSubscription : any;
+  constructor( 
+    private toastService: ToastsService,
+    ){}
+  ngOnInit() {
+    this.getMessage();
+  }
+  getMessage(): void{
     this.openSubscription = this.toastService.open$.subscribe((value: Toast) => {
       if (value.type === true) {
         this.oPen();
@@ -22,7 +28,6 @@ export class ToastComponent {
       }
     });
   }
-  
   oPen():void{
     this.showT = true;
     setTimeout(() => {

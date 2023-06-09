@@ -21,38 +21,36 @@ constructor(
     title :  "",
     body :  ""
   });
-addpost(){
-  const titleValue = this.addpostForm.get('title')?.value ?? '';
-  const bodyValue = this.addpostForm.get('body')?.value ?? '';
-  const data : Post= {
-    title: titleValue,
-    body: bodyValue
-  };
-  const typeValue = true;
-  const messageValue = "Tạo mới thành công"
-  const dataToast : Toast= {
-    type: typeValue,
-    message: messageValue
-  };
-if(!data.title || !data.body){
-  window.alert("vui lòng nhập đầy đủ!")
-}else{
-  this.PostsService.addPosts(data).subscribe( 
-    response => {
-      // Xử lý kết quả trả về từ API
-      console.log('Đăng nhập thành công!', response);
-      this.PostsService.goBack();
-       this.toastService.setOpen(dataToast);
-    },
-    error => {
-      console.log('thêm dữ liệu thất bại!', error);
-      window.alert("thêm dữ liệu thất bại!")
-    }
-    );
-}
-}
+  addpost(){
+    const data : Post= {
+      title: this.addpostForm.get('title')?.value?.trim() ?? '',
+      body: this.addpostForm.get('body')?.value?.trim() ?? ''
+    };
+    const typeValue = true;
+    const messageValue = "Tạo mới thành công"
+    const dataToast : Toast= {
+      type: typeValue,
+      message: messageValue
+    };
+    if(!data.title || !data.body){
+      window.alert("vui lòng nhập đầy đủ!")
+    }else{
+      this.PostsService.addPosts(data).subscribe( 
+        response => {
+          // Xử lý kết quả trả về từ API
+          console.log('Đăng nhập thành công!', response);
+          this.PostsService.goBack();
+          this.toastService.setOpen(dataToast);
+        },
+        error => {
+          console.log('thêm dữ liệu thất bại!', error);
+          window.alert("thêm dữ liệu thất bại!")
+        }
+      );
+  }
+  }
 
-goBack(): void {
-  this.PostsService.goBack();
-};
+  goBack(): void {
+    this.PostsService.goBack();
+  };
 }

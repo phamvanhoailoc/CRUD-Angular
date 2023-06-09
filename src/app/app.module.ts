@@ -9,6 +9,9 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { ViewPostComponent } from './view-post/view-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastComponent } from './toast-edit/toast.component';
+import { ModalsComponent } from './modals-delete/modals.component';
+import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { ModalUpdateComponent } from './modal-update/modal-update.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { ToastComponent } from './toast-edit/toast.component';
     CreatePostComponent,
     EditPostComponent,
     ViewPostComponent,
-    ToastComponent
+    ToastComponent,
+    ModalsComponent,
+    ModalUpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +30,7 @@ import { ToastComponent } from './toast-edit/toast.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MdbModalModule,
   ],
   providers: [
   ],
